@@ -42,11 +42,12 @@ export function UserProvider({ children }: { children: React.ReactNode }) {
 
   const addUser = async (user: User) => {
     try {
-      const newUsers = [...users, { ...user, id: Date.now().toString() }];
+      const newUsers = [...users, user];
       setUsers(newUsers);
       await AsyncStorage.setItem('users', JSON.stringify(newUsers));
     } catch (error) {
       console.error('Failed to add user:', error);
+      throw error;
     }
   };
 
@@ -57,6 +58,7 @@ export function UserProvider({ children }: { children: React.ReactNode }) {
       await AsyncStorage.setItem('users', JSON.stringify(newUsers));
     } catch (error) {
       console.error('Failed to update user:', error);
+      throw error;
     }
   };
 
@@ -67,6 +69,7 @@ export function UserProvider({ children }: { children: React.ReactNode }) {
       await AsyncStorage.setItem('users', JSON.stringify(newUsers));
     } catch (error) {
       console.error('Failed to delete user:', error);
+      throw error;
     }
   };
 

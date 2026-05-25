@@ -73,10 +73,16 @@ export default function AddUserScreen() {
       phone,
       address,
       createdDate: new Date().toLocaleDateString(),
-      ...(profilePicture && { profilePicture }),
+      // Note: profilePicture URIs are temporary and won't persist after app restart
+      // To implement persistent profile pictures, images need to be copied to app's document directory
     };
 
-    await addUser(newUser);
+    try {
+      await addUser(newUser);
+    } catch (error) {
+      Alert.alert('Error', 'Failed to add user. Please try again.');
+      return;
+    }
     Alert.alert('Success', 'User added successfully');
     router.back();
   };

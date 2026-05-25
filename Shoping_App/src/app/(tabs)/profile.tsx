@@ -23,8 +23,8 @@ export default function ProfileScreen() {
             <Text style={styles.avatarText}>HM</Text>
           </View>
           <View style={styles.profileInfo}>
-            <Text style={styles.name}>Hannah Mercer</Text>
-            <Text style={styles.email}>hannah.mercer@gmail.com</Text>
+            <Text style={styles.name}>SAMEERA KUNA</Text>
+            <Text style={styles.email}>sameera@gmail.com</Text>
             <View style={styles.badgeContainer}>
               <Ionicons name="star" size={12} color={CoveColors.primary} />
               <Text style={styles.badge}>COVE MEMBER</Text>
